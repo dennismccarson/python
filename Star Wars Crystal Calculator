@@ -1,0 +1,37 @@
+import calendar
+from datetime import datetime
+
+def calculate_crystals(year, month):
+    # your income sources
+    daily_missions = 100
+    daily_arena = 75
+    raid_crystals = 850 * 2
+    grand_arena_championship = 700
+
+    # your spendings
+    normal_energy_spend = 150
+    cantina_energy_spend = 300
+
+    # total daily income
+    daily_income = daily_missions + daily_arena
+
+    # total daily spend
+    daily_spend = normal_energy_spend + cantina_energy_spend
+
+    # total monthly income
+    monthly_income = daily_income * calendar.monthrange(year, month)[1] + raid_crystals + grand_arena_championship
+
+    # total monthly spend
+    monthly_spend = daily_spend * calendar.monthrange(year, month)[1]
+
+    # total crystals needed to buy
+    crystals_needed_to_buy = monthly_spend - monthly_income
+
+    return max(0, crystals_needed_to_buy)
+
+# current year and month
+now = datetime.now()
+current_year = now.year
+current_month = now.month
+
+print("Crystals needed to buy this month: ", calculate_crystals(current_year, current_month))
