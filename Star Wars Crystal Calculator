@@ -21,7 +21,7 @@ def calculate_crystals(year, month, current_balance):
     daily_spend = normal_energy_spend + cantina_energy_spend
 
     # total monthly income
-    monthly_income = daily_income * calendar.monthrange(year, month)[1] + raid_crystals + grand_arena_championship + daily_login
+    monthly_income = daily_income * calendar.monthrange(year, month)[1] + tb_crystals + grand_arena_championship + daily_login
 
     # total monthly spend
     monthly_spend = daily_spend * calendar.monthrange(year, month)[1]
