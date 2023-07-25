@@ -1,7 +1,7 @@
 import calendar
 from datetime import datetime
 
-def calculate_crystals(year, month):
+def calculate_crystals(year, month, current_balance):
     # your income sources
     daily_missions = 100
     daily_arena = 75
@@ -25,7 +25,7 @@ def calculate_crystals(year, month):
     monthly_spend = daily_spend * calendar.monthrange(year, month)[1]
 
     # total crystals needed to buy
-    crystals_needed_to_buy = monthly_spend - monthly_income
+    crystals_needed_to_buy = monthly_spend - monthly_income - current_balance
 
     return max(0, crystals_needed_to_buy)
 
@@ -34,4 +34,8 @@ now = datetime.now()
 current_year = now.year
 current_month = now.month
 
-print("Crystals needed to buy this month: ", calculate_crystals(current_year, current_month))
+# current balance
+current_balance = 2000 # change this to your current balance
+
+print("Crystals needed to buy this month: ", calculate_crystals(current_year, current_month, current_balance))
+
