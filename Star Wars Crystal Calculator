@@ -5,21 +5,23 @@ def calculate_crystals(year, month, current_balance):
     # your income sources
     daily_missions = 100
     daily_arena = 75
-    raid_crystals = 850 * 2
+    tb_crystals = 850 * 2
     grand_arena_championship = 700
+    daily_login = 500
+    ship_arena = 0
 
     # your spendings
     normal_energy_spend = 150
     cantina_energy_spend = 300
 
     # total daily income
-    daily_income = daily_missions + daily_arena
+    daily_income = daily_missions + daily_arena + ship_arena
 
     # total daily spend
     daily_spend = normal_energy_spend + cantina_energy_spend
 
     # total monthly income
-    monthly_income = daily_income * calendar.monthrange(year, month)[1] + raid_crystals + grand_arena_championship
+    monthly_income = daily_income * calendar.monthrange(year, month)[1] + raid_crystals + grand_arena_championship + daily_login
 
     # total monthly spend
     monthly_spend = daily_spend * calendar.monthrange(year, month)[1]
